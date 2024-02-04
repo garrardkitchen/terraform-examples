@@ -4,7 +4,7 @@ Compare a list of existing resources with what is planned in our IaC.
 
 # Reason
 
-The reason for this example is to simulate working with resources that we have no state for, or never will.  Yup, crazy, but this is dice we've been rolled in this scenario.  What we want to do is check that what's been deployed, is indeed what the config had deployed.  So, all we're doing is comparing our plan with the names of the resource that have been deployed.
+The reason for this example is to simulate working with resources that we have no state for, or never will.  Yup, crazy, but this is the dice we've been rolled, in this scenario.  What we want to do is check that what's been deployed, is indeed what the config had deployed.  So, all we're doing is comparing our plan with the names of the resource that have been deployed, per RG.
 
 # Steps
 
