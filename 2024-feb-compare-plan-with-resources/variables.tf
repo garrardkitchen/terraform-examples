@@ -18,7 +18,11 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "region1cidr" {
-  type        = string
-  description = "Region 1 CIDR Range"
+variable "resource_groups" {
+  type = map(object({
+    cidr = string
+    snets = map(object({
+      prefix = string
+    }))
+  }))
 }
