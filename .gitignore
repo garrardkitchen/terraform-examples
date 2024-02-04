@@ -1,0 +1,8 @@
+__azurite*
+*.exe
+terraform.tfstate*
+sheet.xlsx
+*.tfplan*
+plan.json
+dev.tfvars
+.terraform.lock.hcl
