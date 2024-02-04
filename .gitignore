@@ -6,3 +6,4 @@ sheet.xlsx
 plan.json
 dev.tfvars
 .terraform.lock.hcl
+__queuestorage__*
