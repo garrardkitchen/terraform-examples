@@ -13,7 +13,7 @@ The reason for this example is to simulate working with resources that we have n
 _set up environment and install Excel module_
 
 ```powershell
-set-Alias -Name tf -Value terraform
+Set-Alias -Name tf -Value terraform
 Install-Module -Name ImportExcel -Force -AllowClobber
 Import-Module -Name ImportExcel
 ```
