@@ -42,7 +42,7 @@ resource "azurerm_network_interface" "main" {
 resource "azurerm_linux_virtual_machine" "main" {
   for_each = var.resource_groups
 
-  name                  = "mainVM"
+  name                  = "vm${title(each.key)}"
   resource_group_name   = azurerm_resource_group.resource_group[each.key].name
   location              = var.location
   size                  = "Standard_DS1_v2"
