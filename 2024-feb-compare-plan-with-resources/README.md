@@ -8,6 +8,16 @@ The reason for this example is to simulate working with resources that we have n
 
 # Steps
 
+**Pre**:
+
+_set up environment and install Excel module_
+
+```powershell
+set-Alias -Name tf -Value terraform
+Install-Module -Name ImportExcel -Force -AllowClobber
+Import-Module -Name ImportExcel
+```
+
 **Step 1**:
 
 _execute the plan and out the plan so we can generate the JSoN from this_:
