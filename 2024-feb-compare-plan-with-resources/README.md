@@ -39,7 +39,20 @@ Remove-Item -path sheet.xlsx -ErrorAction Ignore
 _ascertain list of resources from plan and generate a csv with headers_:
 
 ```powershell
-$collection = (tf show -json plan.tfplan | ConvertFrom-Json | % { $_.resource_changes } | ? { $_.change.actions -contains "create" } | % { $_.change.after.name + "," + $_.type + "," + $_.change.after.resource_group_name + "," + $_.change.after.location + "," + (Get-AzResource -Name $_.change.after.name).ResourceId + "," + (Get-AzResource -Name $_.change.after.name).ResourceType})
+$collection = 
+  (tf show -json plan.tfplan 
+  | ConvertFrom-Json 
+  | % { $_.resource_changes } 
+  | ? { $_.change.actions -contains "create" } 
+  | % { 
+      $_.change.after.name + "," + 
+      $_.type + "," + 
+      $_.change.after.resource_group_name + "," + 
+      $_.change.after.location + "," + 
+      (Get-AzResource -Name $_.change.after.name).ResourceId + "," + 
+      (Get-AzResource -Name $_.change.after.name).ResourceType
+    }
+)
 
 $csvData = $collection | ConvertFrom-Csv -Header ("resource","tf_type","rg","location", "resource_id", "resource_type")
 ```
@@ -65,3 +78,7 @@ foreach ($rg in $rgList) {
     }
 }
 ```
+
+This is an example of the resulting Excel spreadsheet:
+
+![](img/2024-02-05-06-56-30.png)
