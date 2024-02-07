@@ -50,7 +50,7 @@ _ascertain list of resources from plan and generate a csv with headers_:
 
 ```powershell
 $collection = 
-  (tf show -json plan.tfplan 
+  ( gc plan.json 
   | ConvertFrom-Json 
   | % { $_.resource_changes } 
   | ? { $_.change.actions -contains "create" } 
